@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegracaoMilvusQlik", "IntegracaoMilvusQlik.csproj", "{EB77C1AD-BCCB-4B1F-85AB-685CDB692DB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB77C1AD-BCCB-4B1F-85AB-685CDB692DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB77C1AD-BCCB-4B1F-85AB-685CDB692DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB77C1AD-BCCB-4B1F-85AB-685CDB692DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB77C1AD-BCCB-4B1F-85AB-685CDB692DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {040435CA-28F4-461C-A82E-EEB6AADBFA35}
+	EndGlobalSection
+EndGlobal
