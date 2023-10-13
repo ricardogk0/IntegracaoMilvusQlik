@@ -9,6 +9,7 @@ namespace IntegracaoMilvusQlik.Models
     {
         [Key]
         [JsonProperty("id")]
+        [Column("id")]
         public int Id { get; set; }
 
         [Column("categoria_primaria")]

@@ -13,7 +13,7 @@ namespace IntegracaoMilvusQlik.Rest
         
         public async Task<ResponseGenerico<List<Lista>>> BuscarChamados(string? codigo, string apiKey)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, $"https://apiintegracao.milvus.com.br/api/chamado/listagem");
+            var request = new HttpRequestMessage(HttpMethod.Post, $"https://apiintegracao.milvus.com.br/api/chamado/listagem?total_registros=1000");
             var response = new ResponseGenerico<List<Lista>>();
             request.Headers.Add("Authorization", apiKey);
             
@@ -49,7 +49,7 @@ namespace IntegracaoMilvusQlik.Rest
 
         public async Task<ResponseGenerico<List<Lista>>> BuscarPorData(string? dataInicial, string? dataFinal, string apiKey)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, $"https://apiintegracao.milvus.com.br/api/chamado/listagem");
+            var request = new HttpRequestMessage(HttpMethod.Post, $"https://apiintegracao.milvus.com.br/api/chamado/listagem?total_registros=1000");
             var response = new ResponseGenerico<List<Lista>>();
             request.Headers.Add("Authorization", apiKey);
 

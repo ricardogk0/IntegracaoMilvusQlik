@@ -1,11 +1,10 @@
 using System.Net;
 using AutoMapper;
 using IntegracaoMilvusQlik.Data;
-using IntegracaoMilvusQlik.Dtos;
 using IntegracaoMilvusQlik.Interfaces;
 using IntegracaoMilvusQlik.Models;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using System.Linq;
 
 namespace IntegracaoMilvusQlik.Controllers
 {
@@ -34,9 +33,13 @@ namespace IntegracaoMilvusQlik.Controllers
 
             var response = await _listaService.BuscarChamados(codigo, apiKey);       
             var dadosMapeados = _mapper.Map<List<Lista>>(response.DadosRetorno);
+
             foreach(var item in dadosMapeados)
             {
-                _context.Listas.Add(item);
+                if(!VerificaTicket(item.Id))
+                {
+                    _context.Listas.Add(item);
+                }
                 await _context.SaveChangesAsync();
             }
             
@@ -60,9 +63,14 @@ namespace IntegracaoMilvusQlik.Controllers
 
             var response = await _listaService.BuscarPorData(dataInicial, dataFinal, apiKey);       
             var dadosMapeados = _mapper.Map<List<Lista>>(response.DadosRetorno);
+
             foreach(var item in dadosMapeados)
             {
-                _context.Listas.Add(item);
+                if(!VerificaTicket(item.Id))
+                {
+                    _context.Listas.Add(item);
+                }
+                
                 await _context.SaveChangesAsync();
             }
             
@@ -74,6 +82,11 @@ namespace IntegracaoMilvusQlik.Controllers
             {
                 return StatusCode((int)response.CodigoHttp, response.ErroRetorno);
             }
+        }
+
+        public bool VerificaTicket(int id)
+        {
+            return _context.Listas.Any(i => i.Id == id);
         }
     }
 }
