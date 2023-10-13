@@ -11,10 +11,10 @@ namespace IntegracaoMilvusQlik.Rest
     public class MilvusApiRest : IMilvusApi
     {
         
-        public async Task<ResponseGenerico<Root>> BuscarChamados(string? codigo, string apiKey)
+        public async Task<ResponseGenerico<List<Lista>>> BuscarChamados(string? codigo, string apiKey)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, $"https://apiintegracao.milvus.com.br/api/chamado/listagem");
-            var response = new ResponseGenerico<Root>();
+            var response = new ResponseGenerico<List<Lista>>();
             request.Headers.Add("Authorization", apiKey);
             
             var pesquisa = new FiltroBodyWrapper {
@@ -35,7 +35,7 @@ namespace IntegracaoMilvusQlik.Rest
                     response.CodigoHttp = responseMilvusApi.StatusCode;
                     var objResponse = JsonConvert.DeserializeObject<Root>(contentResponse);
 
-                    response.DadosRetorno = objResponse;
+                    response.DadosRetorno = objResponse.Lista;
                 }
                 else
                 {
@@ -47,10 +47,10 @@ namespace IntegracaoMilvusQlik.Rest
             }
         }
 
-        public async Task<ResponseGenerico<Root>> BuscarPorData(string? dataInicial, string? dataFinal, string apiKey)
+        public async Task<ResponseGenerico<List<Lista>>> BuscarPorData(string? dataInicial, string? dataFinal, string apiKey)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, $"https://apiintegracao.milvus.com.br/api/chamado/listagem");
-            var response = new ResponseGenerico<Root>();
+            var response = new ResponseGenerico<List<Lista>>();
             request.Headers.Add("Authorization", apiKey);
 
             var pesquisa = new FiltroBodyWrapper{
@@ -72,7 +72,7 @@ namespace IntegracaoMilvusQlik.Rest
                     response.CodigoHttp = responseMilvusApi.StatusCode;
                     var objResponse = JsonConvert.DeserializeObject<Root>(contentResponse);
 
-                    response.DadosRetorno = objResponse;
+                    response.DadosRetorno = objResponse.Lista;
                 }
                 else
                 {
@@ -81,7 +81,7 @@ namespace IntegracaoMilvusQlik.Rest
                 }
 
                 return response;
-            }     
+            } 
         }
     }
 }

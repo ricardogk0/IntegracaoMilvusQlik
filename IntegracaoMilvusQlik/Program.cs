@@ -17,10 +17,14 @@ builder.Services.AddDbContext<IntegracaoMilvusQlikContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("IntegracaoMilvusQlikContext") ?? 
         throw new InvalidOperationException("Connection string 'IntegracaoMilvusQlik' not found.")));
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 builder.Services.AddSingleton<IListaService, ListaService>();
 builder.Services.AddSingleton<IMilvusApi, MilvusApiRest>();
 
 builder.Services.AddAutoMapper(typeof(ListaMapping));
+builder.Services.AddAutoMapper(typeof(RootMapping));
+builder.Services.AddAutoMapper(typeof(MetaMapping));
 
 var app = builder.Build();
 

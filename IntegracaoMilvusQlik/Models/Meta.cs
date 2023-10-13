@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace IntegracaoMilvusQlik.Models
 {
-        public class Meta
+    public class Meta
     {
         [JsonProperty("paginate")]
         public Paginate? Paginate { get; set; }

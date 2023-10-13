@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
 namespace IntegracaoMilvusQlik.Models
@@ -10,112 +9,105 @@ namespace IntegracaoMilvusQlik.Models
     {
         [Key]
         [JsonProperty("id")]
-        public int Id;
+        public int Id { get; set; }
 
+        [Column("categoria_primaria")]
         [JsonProperty("categoria_primaria")]
-        public string? CategoriaPrimaria;
+        public string? CategoriaPrimaria { get; set; }
 
+        [Column("categoria_secundaria")]
         [JsonProperty("categoria_secundaria")]
-        public string? CategoriaSecundaria;
+        public string? CategoriaSecundaria { get; set; }
 
         [JsonProperty("total_avaliacao")]
-        public object? TotalAvaliacao;
+        public string? TotalAvaliacao { get; set; }
 
         [JsonProperty("descricao_avaliacao")]
-        public object? DescricaoAvaliacao;
+        public string? DescricaoAvaliacao { get; set; }
 
         [JsonProperty("tecnico")]
-        public object? Tecnico;
+        public string? Tecnico { get; set; }
 
         [JsonProperty("mesa_trabalho")]
-        public string? MesaTrabalho;
+        public string? MesaTrabalho { get; set; }
 
         [JsonProperty("data_solucao")]
-        public object? DataSolucao;
-
-        [JsonProperty("dispositivo_vinculado")]
-        public object? DispositivoVinculado;
+        public DateTime? DataSolucao { get; set; }
 
         [JsonProperty("servico_realizado")]
-        public object? ServicoRealizado;
+        public string? ServicoRealizado { get; set; }
 
         [JsonProperty("data_agendamento")]
-        public object? DataAgendamento;
+        public DateTime? DataAgendamento { get; set; }
 
         [JsonProperty("data_resposta")]
-        public object? DataResposta;
+        public DateTime? DataResposta { get; set; }
 
         [JsonProperty("equipamento_retirado")]
-        public object? EquipamentoRetirado;
+        public string? EquipamentoRetirado { get; set; }
 
         [JsonProperty("material_utilizado")]
-        public object? MaterialUtilizado;
+        public string? MaterialUtilizado { get; set; }
 
         [JsonProperty("setor")]
-        public object? Setor;
+        public string? Setor { get; set; }
 
         [JsonProperty("tipo_ticket")]
-        public object? TipoTicket;
+        public string? TipoTicket { get; set; }
 
         [JsonProperty("prioridade")]
-        public string? Prioridade;
+        public string? Prioridade { get; set; }
 
         [JsonProperty("codigo")]
-        public int? Codigo;
+        public int? Codigo { get; set; }
 
         [JsonProperty("cliente")]
-        public string? Cliente;
+        public string? Cliente { get; set; }
 
         [JsonProperty("cliente_token")]
-        public string? ClienteToken;
+        public string? ClienteToken { get; set; }
 
         [JsonProperty("assunto")]
-        public string? Assunto;
+        public string? Assunto { get; set; }
 
         [JsonProperty("descricao")]
-        public string? Descricao;
+        public string? Descricao { get; set; }
 
         [JsonProperty("contato")]
-        public string? Contato;
+        public string? Contato { get; set; }
 
         [JsonProperty("email_conferencia")]
-        public string? EmailConferencia;
+        public string? EmailConferencia { get; set; }
 
         [JsonProperty("telefone")]
-        public string? Telefone;
+        public string? Telefone { get; set; } 
 
         [JsonProperty("data_criacao")]
-        public DateTime? DataCriacao;
+        public DateTime? DataCriacao { get; set; } 
 
         [JsonProperty("data_modificacao")]
-        public string? DataModificacao;
+        public DateTime? DataModificacao { get; set; }
 
         [JsonProperty("total_horas")]
-        public object? TotalHoras;
+        public string? TotalHoras { get; set; }
 
         [JsonProperty("origem")]
-        public string? Origem;
+        public string? Origem { get; set; }
 
         [JsonProperty("status")]
-        public string? Status;
+        public string? Status { get; set; }
 
         [JsonProperty("impacto")]
-        public string? Impacto;
+        public string? Impacto { get; set; }
 
         [JsonProperty("urgencia")]
-        public string? Urgencia;
-
-        [JsonProperty("ultima_log")]
-        public object? UltimaLog;
-
-        [JsonProperty("sla")]
-        public Sla? Sla;
+        public string? Urgencia { get; set; }
 
         [JsonProperty("status_sla_resposta")]
-        public string? StatusSlaResposta;
+        public string? StatusSlaResposta { get; set; }
 
         [JsonProperty("status_sla_solucao")]
-        public string? StatusSlaSolucao;
+        public string? StatusSlaSolucao { get; set; }
     }
 }
 

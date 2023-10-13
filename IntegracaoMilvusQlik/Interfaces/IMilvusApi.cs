@@ -5,7 +5,7 @@ namespace IntegracaoMilvusQlik.Interfaces
 {
     public interface IMilvusApi
     {
-        Task<ResponseGenerico<Root>> BuscarChamados(string? codigo, string apiKey);
-        Task<ResponseGenerico<Root>> BuscarPorData(string? dataInicial, string? dataFinal, string apiKey);
+        Task<ResponseGenerico<List<Lista>>> BuscarChamados(string? codigo, string apiKey);
+        Task<ResponseGenerico<List<Lista>>> BuscarPorData(string? dataInicial, string? dataFinal, string apiKey);
     }
 }
